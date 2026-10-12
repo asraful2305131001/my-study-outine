@@ -10,8 +10,10 @@ This package preserves/builds the requested app modules:
 - Subject materials (PDF, PowerPoint, books, documents, links); local demo files limited to 1.5 MB; cloud upload UI supports files up to 50 MB, subject to provider/plan limits
 - Focus timer, dashboard, course-wise reports, backup/restore and attendance CSV export
 - Live Bangladesh-time clock and an embedded link to the official NextClass app, including its routine, cover-page generator, teachers, rooms, contacts and events
+- DIU Apps shortcuts to BLC, Student Portal and 1Card; these open the official sites in a new tab and do not collect portal passwords
+- Automatic class timers based on the Bangladesh-time timetable. Timer records are restored from the scheduled start/end if the app is reopened during or after class; attendance is never automatic and must be confirmed with “Mark present” during class
 - App branding: Class Routine · Developed by Md Asraful Islam
-- App icon / PWA metadata for laptop and iPhone
+- Original calendar-and-clock app icon / PWA metadata for laptop and iPhone
 
 IMPORTANT
 ---------
@@ -41,7 +43,7 @@ LOCAL DEMO
 LIMITATIONS / SAFETY
 --------------------
 - App is not live until you add the publishable key, configure Google OAuth, run the SQL, and deploy it.
-- The app now calculates current date, weekday and attendance windows using Bangladesh time (Asia/Dhaka), independent of the laptop/iPhone timezone. Test class attendance logic with the actual schedule before relying on it. It records when you click during the scheduled class window; it cannot prove physical attendance.
+- The app now calculates current date, weekday, class timers and attendance windows using Bangladesh time (Asia/Dhaka), independent of the laptop/iPhone timezone. Class timers are duration trackers, not proof of attendance. Attendance is recorded only when you click “Mark present” during the scheduled class window; it cannot prove physical attendance.
 - The screenshot's timetable text is small; all seeded classes can be edited or removed.
 - The NextClass tab loads https://eeediu.vercel.app/ directly, so its official features stay current and require an internet connection. NextClass remains a separate service: its login, routine, and data are not merged or synchronized with this app's Supabase/local records. Use “Open NextClass separately” if embedded sign-in, downloads, or browser storage are restricted.
 - Cloud file upload uses a private Supabase Storage bucket. The app uploads files to the private Supabase Storage bucket when signed in to configured cloud mode. Set the bucket file-size limit in Supabase Storage settings (up to 50 MB for this app UI, subject to your Supabase plan). Provider/plan limits still apply. For downloads, ensure your app uses authenticated/signed links; do not make the bucket public for private course materials.
