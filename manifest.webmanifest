@@ -1,6 +1,6 @@
 {
-  "name": "My Study Routine",
-  "short_name": "Study Routine",
+  "name": "Class Routine",
+  "short_name": "Class Routine",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
